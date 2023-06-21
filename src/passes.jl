@@ -173,7 +173,7 @@ function import_to_usings(fst::FST, s::State)
         return FST[]
 
     # handle #723 "import ..f" should not become "using ..f: f"
-    if length(nodes) == 3 && !is_leaf(nodes[3]) && nodes[3].nodes[1].val == "."
+    if length(nodes) == 3 && !is_leaf(nodes[3]) && (nodes[3].nodes::Vector)[1].val == "."
         return FST[]
     end
 

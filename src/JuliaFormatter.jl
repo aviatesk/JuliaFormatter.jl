@@ -963,13 +963,13 @@ function parse_config(tomlfile)
             style == "sciml" ||
             style == "minimal"
         ) "currently $(CONFIG_FILE_NAME) accepts only \"default\" or \"yas\", \"blue\", \"sciml\", or \"minimal\" for the style configuration"
-        config_dict["style"] = if (style == "yas" && @isdefined(YASStyle))
+        config_dict["style"] = if style == "yas"
             YASStyle()
-        elseif (style == "blue" && @isdefined(BlueStyle))
+        elseif style == "blue"
             BlueStyle()
-        elseif (style == "sciml" && @isdefined(SciMLStyle))
+        elseif style == "sciml"
             SciMLStyle()
-        elseif (style == "minimal" && @isdefined(MinimalStyle))
+        elseif style == "minimal"
             MinimalStyle()
         else
             DefaultStyle()
